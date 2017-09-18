@@ -8,6 +8,8 @@
 
 <body>
 
+<h1>Beliefs repo</h1>
+
 <p>
     Some ways I would describe this are “tracking belief changes over time”,
     “recording beliefs with high fidelity”, “creating a repository of beliefs”.
@@ -23,7 +25,7 @@
 </p>
 
 <ul>
-    <li>The <a href=https://en.wikipedia.org/wiki/Initiative_on_Global_Markets#IGM_polls_and_the_Economics_Experts_Panel">IGM Panel</a></li>
+    <li>The <a href="https://en.wikipedia.org/wiki/Initiative_on_Global_Markets#IGM_polls_and_the_Economics_Experts_Panel">IGM Panel</a></li>
     <li>Propositions on Arbital</li>
     <li>PhilPapers Surveys and other professional surveys (AI Impacts survey,
         various surveys of economists)</li>
