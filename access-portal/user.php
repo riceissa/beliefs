@@ -14,13 +14,6 @@
 <?php
 
 include_once("backend/globalVariables/passwordFile.inc");
-
-$query = 'select * from beliefs';
-if ($stmt = $mysqli->prepare($query)) {
-    # $stmt->bind_param("s", $donor);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
         print '<table>';
         print '  <thead>';
         print '    <tr>';
@@ -30,14 +23,21 @@ if ($stmt = $mysqli->prepare($query)) {
         print '    </tr>';
         print '  </thead>';
         print '  <tbody>';
+
+$query = 'select * from beliefs';
+if ($stmt = $mysqli->prepare($query)) {
+    # $stmt->bind_param("s", $donor);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
         print '    <tr>';
         print "<td>" . $row['belief_text'] . "</td>";
-        print "<td>" . $row['belief_text'] . "</td>";
-        print "<td>" . $row['belief_text'] . "</td>";
+        print "<td>" . $row['likert_response'] . "</td>";
+        print "<td>" . $row['confidence'] . "</td>";
         print '    </tr>';
+    }
         print '  </tbody>';
         print '</table>';
-    }
 }
 
 $username = $_REQUEST['username'];
