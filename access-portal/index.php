@@ -11,8 +11,17 @@
 <h1>Beliefs repo</h1>
 
 <p>
-    Some ways I would describe this are “tracking belief changes over time”,
-    “recording beliefs with high fidelity”, “creating a repository of beliefs”.
+    Some ways I would describe this site are “tracking belief changes over time”,
+    “recording beliefs with high fidelity”, “creating a repository of beliefs”,
+    “querying your mind from multiple directions to elicit accurate beliefs”,
+    and “the longest interview ever”.
+</p>
+
+<p>The <em>boring</em> way to use this site would be to just read other people’s
+    beliefs using the <a href="/belief.php">belief portal</a> or
+    the <a href="/user.php">user portal</a>. The more <em>exciting</em> way to
+    use this site is to go ahead and <a href="/login.php">log in</a> and
+    <a href="/add.php">add some beliefs</a>.
 </p>
 
 <p>Some related reading:</p>
