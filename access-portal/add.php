@@ -54,6 +54,7 @@ session_start();
     <textarea rows="5" cols="80" id="notes"></textarea>
     <br />
 
+    <input type="hidden" name="username" value="<?= $_SESSION['user'] ?>">
     <input type="submit" value="Submit" />
 </form>
 
