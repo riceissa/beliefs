@@ -20,9 +20,9 @@ session_start();
 <?= date('Y-m-d') ?>
 </p>
 
-<form method="post">
+<form action="process_add.php" method="post">
     <label>Belief text</label>
-    <input type="text" style="width:300px;" name="notes"/>
+    <input type="text" style="width:300px;" name="belief_text"/>
     <br />
 
     <label>Agreement</label>
@@ -53,6 +53,8 @@ session_start();
     <label>Notes</label><br />
     <textarea rows="5" cols="80" id="notes"></textarea>
     <br />
+
+    <input type="submit" value="Submit" />
 </form>
 
 </body>
