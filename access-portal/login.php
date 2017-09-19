@@ -30,11 +30,7 @@ if(array_key_exists('token', $_GET)) {
 </head>
 <body>
 
-<nav><a href="/index.php">Home</a>,
-    <a href="/faq.php">FAQ</a>,
-    <a href="/belief.php">Beliefs</a>,
-    <a href="/user.php">Users</a>
-</nav>
+<?php include('navbar.inc') ?>
 
 <?php
 // If the user is not logged in, display a login link
