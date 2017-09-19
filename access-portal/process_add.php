@@ -58,6 +58,11 @@ if ($stmt = $mysqli->prepare($query)) {
 
     $params_ok = true;
 
+    if (!isset($_SESSION['user'])) {
+        print 'User not signed in.';
+        $params_ok = false;
+    }
+
     $ppe = $_POST['probability_point_estimate'];
     if (!is_probability($ppe)) {
         echo 'Probability point estimate must be between 0 and 1.<br />';
