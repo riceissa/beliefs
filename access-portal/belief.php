@@ -36,6 +36,13 @@ $belief = $_REQUEST['text'];
             <th>Likert response</th>
             <th>Confidence</th>
             <th>Probability</th>
+            <th>Probability lower bound</th>
+            <th>Probability upper bound</th>
+            <th>Belief held on</th>
+            <th>Belief expressed on</th>
+            <th>Belief entered on</th>
+            <th>Works consumed</th>
+            <th>Notes</th>
         </tr>
     </thead>
     <tbody>
@@ -64,8 +71,15 @@ while ($row = $result->fetch_assoc()) {
     <?= $belief ? '' : '<td>' . $row['belief_text'] . '</td>' ?>
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?></td>
-    <td><?= $row['confidence'] ?></td>
-    <td><?= $row['probability_point_estimate'] ?> [<?= $row['probability_lower_bound'] ?>, <?= $row['probability_upper_bound'] ?>]</td>
+    <td align="right"><?= $row['confidence'] ?></td>
+    <td align="right"><?= $row['probability_point_estimate'] ?></td>
+    <td align="right"><?= $row['probability_lower_bound'] ?></td>
+    <td align="right"><?= $row['probability_upper_bound'] ?></td>
+    <td align="right"><?= $row['belief_date'] ?></td>
+    <td align="right"><?= $row['belief_expression_date'] ?></td>
+    <td align="right"><?= $row['belief_entry_date'] ?></td>
+    <td><?= $row['works_consumed'] ?></td>
+    <td><?= $row['notes'] ?></td>
 </tr>
 
 <?php
