@@ -17,6 +17,8 @@ include_once("backend/globalVariables/passwordFile.inc");
 <?= htmlspecialchars($_REQUEST['text']) ?>
 </p>
 
+<p>Here are the users who have expressed their opinion on this belief:</p>
+
 <table>
   <thead>
     <tr>
