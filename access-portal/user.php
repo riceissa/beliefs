@@ -34,7 +34,7 @@ if ($stmt = $mysqli->prepare($query)) {
 ?>
 
 <tr>
-    <td><?= $row['belief_text'] ?? 'N/A' ?></td>
+    <td><a href="/belief.php?text=<?= urlencode($row['belief_text']) ?>"><?= $row['belief_text'] ?? 'N/A' ?></a></td>
     <td><?= $row['likert_response'] ?></td>
     <td><?= $row['confidence'] ?></td>
 </tr>
