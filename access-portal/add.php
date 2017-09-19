@@ -24,7 +24,7 @@
     <br />
 
     <label>Agreement</label>
-    <select id="likert_response">
+    <select name="likert_response">
         <option value="">NULL</option>
         <option>Strongly agree</option>
         <option>Agree</option>
@@ -74,11 +74,11 @@
     <br />
 
     <label>List of works you consumed to form this belief</label><br />
-    <textarea rows="5" cols="80" id="works_consumed"></textarea>
+    <textarea rows="5" cols="80" name="works_consumed"></textarea>
     <br />
 
     <label>Notes</label><br />
-    <textarea rows="5" cols="80" id="notes"></textarea>
+    <textarea rows="5" cols="80" name="notes"></textarea>
     <br />
 
     <input type="submit" value="Submit" />
