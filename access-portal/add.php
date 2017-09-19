@@ -50,6 +50,34 @@ session_start();
     <input type="radio" name="confidence" value="10"> 10
     <br />
 
+    <label>Date on which the belief was held</label>
+    <input type="text" name="belief_date" placeholder="YYYY[-MM[-DD]]" />
+    <br />
+
+    <label>Date on which belief was expressed</label>
+    <input type="text" name="belief_expression_date" placeholder="YYYY[-MM[-DD]]" />
+    <br />
+
+    <label>Link to page where belief was expressed</label>
+    <input type="text" name="belief_expression_url" placeholder="http://" />
+    <br />
+
+    <label>Point estimate of probability</label>
+    <input type="text" name="probability_point_estimate" />
+    <br />
+
+    <label>Lower bound of probability (the probability is <em>at least</em>&nbsp;…)</label>
+    <input type="text" name="probability_lower_bound" />
+    <br />
+
+    <label>Upper bound of probability (the probability is <em>at most</em>&nbsp;…)</label>
+    <input type="text" name="probability_upper_bound" />
+    <br />
+
+    <label>List of works you consumed to form this belief</label><br />
+    <textarea rows="5" cols="80" id="works_consumed"></textarea>
+    <br />
+
     <label>Notes</label><br />
     <textarea rows="5" cols="80" id="notes"></textarea>
     <br />
