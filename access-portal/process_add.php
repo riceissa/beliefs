@@ -94,6 +94,9 @@ if ($stmt = $mysqli->prepare($query)) {
 
     if (is_date($bdate)) {
         echo "date: " . date_precision($bdate) . "<br />";
+        $bdate_prec = date_precision($bdate);
+    } else {
+        $bdate_prec = null;
     }
     if ($bdate == '') {
         $bdate = null;
@@ -103,6 +106,12 @@ if ($stmt = $mysqli->prepare($query)) {
     if ($edate !== '' && !is_date($edate)) {
         echo 'Belief expression date is not a date.<br />';
         $params_ok = false;
+    }
+    if (is_date($edate)) {
+        echo "date: " . date_precision($edate) . "<br />";
+        $edate_prec = date_precision($edate);
+    } else {
+        $edate_prec = null;
     }
     if ($edate == '') {
         $edate = null;
@@ -125,9 +134,9 @@ if ($stmt = $mysqli->prepare($query)) {
             $plb,
             $pub,
             $bdate,
-            date_precision($bdate),
+            $bdate_prec,
             $edate,
-            date_precision($edate),
+            $edate_prec,
             $_POST['belief_expression_url'],
             date('Y-m-d'),
             $_POST['works_consumed'],
