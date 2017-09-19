@@ -75,17 +75,26 @@ if ($stmt = $mysqli->prepare($query)) {
         echo 'Probability point estimate must be between 0 and 1.<br />';
         $params_ok = false;
     }
+    if ($ppe === '') {
+        $ppe = null;
+    }
 
     $plb = $_POST['probability_lower_bound'];
     if ($plb !== '' && !is_probability($plb)) {
         echo 'Probability lower bound must be between 0 and 1.<br />';
         $params_ok = false;
     }
+    if ($plb === '') {
+        $plb = null;
+    }
 
     $pub = $_POST['probability_upper_bound'];
     if ($pub !== '' && !is_probability($pub)) {
         echo 'Probability upper bound must be between 0 and 1.<br />';
         $params_ok = false;
+    }
+    if ($pub === '') {
+        $pub = null;
     }
 
     $bdate = $_POST['belief_date'];
