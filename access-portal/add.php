@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,6 @@
 </head>
 
 <body>
-<?php
-
-session_start();
-?>
 
 <p><a href="/logout.php">Log out</a></p>
 

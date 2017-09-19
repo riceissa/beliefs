@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once("backend/globalVariables/passwordFile.inc");
 $belief = $_REQUEST['text'];
 ?>
