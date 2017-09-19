@@ -23,7 +23,7 @@ include_once("backend/globalVariables/passwordFile.inc");
 </p>
 <?php } ?>
 
-<p><a href="//<?= urlencode($_REQUEST['username']) ?>">Visit this user’s web page</a>.
+<p><a href="//<?= $_REQUEST['username'] ?>">Visit this user’s web page</a>.
 </p>
 
 <?php
