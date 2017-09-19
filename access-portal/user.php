@@ -17,6 +17,21 @@ include_once("backend/globalVariables/passwordFile.inc");
 
 <h1>Beliefs repo for <?= $_REQUEST['username'] ?></h1>
 
+<p><a href="//<?= urlencode($_REQUEST['username']) ?>">Visit this user’s web page</a>.
+</p>
+
+<?php
+
+
+$query = 'select * from beliefs where username = ?';
+if ($stmt = $mysqli->prepare($query)) {
+    $stmt->bind_param("s", $_REQUEST['username']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+?>
+  <p>This user has <?= $mysqli->affected_rows ?> beliefs.
+  </p>
+
 <table>
   <thead>
     <tr>
@@ -36,17 +51,8 @@ include_once("backend/globalVariables/passwordFile.inc");
   <tbody>
 
 <?php
-
-
-$query = 'select * from beliefs where username = ?';
-if ($stmt = $mysqli->prepare($query)) {
-    $stmt->bind_param("s", $_REQUEST['username']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    print $mysqli->affected_rows;
     while ($row = $result->fetch_assoc()) {
 ?>
-
 <tr>
     <td><a href="/belief.php?text=<?= urlencode($row['belief_text']) ?>"><?= $row['belief_text'] ?? 'N/A' ?></a></td>
     <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
