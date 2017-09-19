@@ -123,6 +123,9 @@ if ($stmt = $mysqli->prepare($query)) {
         $params_ok = false;
     }
 
+    $entry_method = 'add.php';
+    $current_date = date('Y-m-d');
+
     if ($params_ok) {
         $stmt->bind_param(
             "sssidddsssssssss",
@@ -138,9 +141,9 @@ if ($stmt = $mysqli->prepare($query)) {
             $edate,
             $edate_prec,
             $_POST['belief_expression_url'],
-            date('Y-m-d'),
+            $current_date,
             $_POST['works_consumed'],
-            $entry_method = 'add.php',
+            $entry_method,
             $_POST['notes']
         );
         $stmt->execute();
