@@ -96,8 +96,8 @@ if ($stmt = $mysqli->prepare($query)) {
 ?>
         <tr>
         <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
-        <td><?= $row['numBeliefs'] ?></td>
-        <td><?= $row['numDistinctBeliefs'] ?></td>
+        <td align="right"><?= $row['numBeliefs'] ?></td>
+        <td align="right"><?= $row['numDistinctBeliefs'] ?></td>
         </tr>
 <?php
     }
