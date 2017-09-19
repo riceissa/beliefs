@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once("backend/globalVariables/passwordFile.inc");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +11,13 @@
 </head>
 
 <body>
+<?php include('navbar.inc') ?>
 
 <h1>hello</h1>
 
 <pre>
 
 <?php
-session_start();
-include_once("backend/globalVariables/passwordFile.inc");
-
 function is_probability($p) {
     if (is_numeric($p) && floatval($p) >= 0 && floatval($p) <= 1) {
         return true;
