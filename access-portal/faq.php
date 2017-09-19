@@ -64,5 +64,10 @@
     public domain dedication</a>.
 </p>
 
+<p><strong>Question:</strong>
+    Can we enter values and aesthetic judgments (i.e. things that some
+    people consider ‘subjective’ rather than ‘objective’) on this site?
+</p>
+
 </body>
 </html>
