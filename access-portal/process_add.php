@@ -80,15 +80,29 @@ if ($stmt = $mysqli->prepare($query)) {
         echo "date: " . date_precision($bdate) . "<br />";
     }
 
+    $edate = $_POST['belief_expression_date'];
+    if (!is_date($edate)) {
+        echo 'Belief expression date is not a date.<br />';
+    }
+
     $stmt->bind_param(
-        "ssss",
+        "sssidddsssssssss",
         $_POST['username'],
         $_POST['belief_text'],
         $_POST['likert_response'],
         $_POST['confidence'],
         $ppe,
         $plb,
-        $pub
+        $pub,
+        $bdate,
+        date_precision($bdate),
+        $edate,
+        date_precision($edate),
+        $_POST['belief_expression_url'],
+        date('Y-m-d'),
+        $_POST['works_consumed'],
+        $entry_method = 'add.php',
+        $_POST['notes']
     );
     $stmt->execute();
     print $stmt->error;
