@@ -64,19 +64,19 @@ if ($stmt = $mysqli->prepare($query)) {
     }
 
     $ppe = $_POST['probability_point_estimate'];
-    if (!is_probability($ppe)) {
+    if ($ppe !== '' && !is_probability($ppe)) {
         echo 'Probability point estimate must be between 0 and 1.<br />';
         $params_ok = false;
     }
 
     $plb = $_POST['probability_lower_bound'];
-    if (!is_probability($plb)) {
+    if ($plb !== '' && !is_probability($plb)) {
         echo 'Probability lower bound must be between 0 and 1.<br />';
         $params_ok = false;
     }
 
     $pub = $_POST['probability_upper_bound'];
-    if (!is_probability($pub)) {
+    if ($pub !== '' && !is_probability($pub)) {
         echo 'Probability upper bound must be between 0 and 1.<br />';
         $params_ok = false;
     }
