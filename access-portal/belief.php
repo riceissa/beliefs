@@ -1,6 +1,7 @@
 <?php
 
 include_once("backend/globalVariables/passwordFile.inc");
+$belief = $_REQUEST['text'];
 ?>
 
 <!DOCTYPE html>
@@ -26,32 +27,45 @@ include_once("backend/globalVariables/passwordFile.inc");
 <p>Here are the users who have expressed their opinion on this belief:</p>
 
 <table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Likert response</th>
-      <th>Confidence</th>
-    </tr>
-  </thead>
-  <tbody>
+    <thead>
+        <tr>
+            <?= $belief ? '' : '<th>Belief</th>' ?>
+            <th>Username</th>
+            <th>Likert response</th>
+            <th>Confidence</th>
+        </tr>
+    </thead>
+    <tbody>
 
 <?php
-$query = "select * from beliefs where belief_text = ?";
-if ($stmt = $mysqli->prepare($query)) {
-    $stmt->bind_param("s", $_REQUEST['text']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-?>
 
-    <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
-    <td><?= $row['likert_response'] ?></td>
-    <td><?= $row['confidence'] ?></td>
-
-<?php
+if ($belief) {
+    $query = "select * from beliefs where belief_text = ?";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param("s", $belief);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+} else {
+    $query = "select * from beliefs";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->execute();
+        $result = $stmt->get_result();
     }
 }
 
+while ($row = $result->fetch_assoc()) {
+?>
+
+<tr>
+    <?= $belief ? '' : '<td>' . $row['belief_text'] . '</td>' ?>
+    <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
+    <td><?= $row['likert_response'] ?></td>
+    <td><?= $row['confidence'] ?></td>
+</tr>
+
+<?php
+}
 ?>
 
 </body>
