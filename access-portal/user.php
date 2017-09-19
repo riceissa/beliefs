@@ -73,6 +73,15 @@ if ($stmt = $mysqli->prepare($query)) {
 
 <h1>Users on this site</h1>
 
+<?php
+$query = 'select distinct(username) as username, count(*) numBeliefs, count(distinct belief_text) as numDistinctBeliefs from beliefs group by username';
+if ($stmt = $mysqli->prepare($query)) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+?>
+
+<p>There are <?= $mysqli->affected_rows ?> users on this site:</p>
+
 <table>
 <thead>
     <tr>
@@ -83,11 +92,6 @@ if ($stmt = $mysqli->prepare($query)) {
 </thead>
 
 <?php
-$query = 'select distinct(username) as username, count(*) numBeliefs, count(distinct belief_text) as numDistinctBeliefs from beliefs group by username';
-if ($stmt = $mysqli->prepare($query)) {
-    $stmt->execute();
-    $result = $stmt->get_result();
-    print $mysqli->affected_rows;
     while ($row = $result->fetch_assoc()) {
 ?>
         <tr>
