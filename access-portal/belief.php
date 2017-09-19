@@ -72,7 +72,7 @@ while ($row = $result->fetch_assoc()) {
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['confidence'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_point_estimate'] ?></td>
+    <td align="right"><?= $row['probability_point_estimate'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
