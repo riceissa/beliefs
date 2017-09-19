@@ -55,6 +55,17 @@ function date_precision($x) {
 }
 
 function date_normalized($x) {
+    $prec = date_precision($x);
+    if ($prec === "day") {
+        return $x;
+    } else if ($prec === "month") {
+        return $x . "-01";
+    } else if ($prec === "year") {
+        return $x . "-01-01";
+    } else {
+        // prec is null
+        return null;
+    }
 }
 
 $query = "insert into beliefs (username, belief_text, likert_response, confidence, probability_point_estimate, probability_lower_bound, probability_upper_bound, belief_date, belief_date_precision, belief_expression_date, belief_expression_date_precision, belief_expression_url, belief_entry_date, works_consumed, entry_method, notes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -113,9 +124,7 @@ if ($stmt = $mysqli->prepare($query)) {
     } else {
         $bdate_prec = null;
     }
-    if ($bdate == '') {
-        $bdate = null;
-    }
+    $bdate = date_normalized($bdate);
 
     echo "edate: $edate<br />";
     $edate = $_POST['belief_expression_date'];
@@ -129,9 +138,7 @@ if ($stmt = $mysqli->prepare($query)) {
     } else {
         $edate_prec = null;
     }
-    if ($edate == '') {
-        $edate = null;
-    }
+    $edate = date_normalized($edate);
 
     $conf = $_POST['confidence'];
     if ($conf !== '' && !(intval($conf) <= 10 && intval($conf) >= 1)) {
