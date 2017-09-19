@@ -54,6 +54,9 @@ function date_precision($x) {
     return null;
 }
 
+function date_normalized($x) {
+}
+
 $query = "insert into beliefs (username, belief_text, likert_response, confidence, probability_point_estimate, probability_lower_bound, probability_upper_bound, belief_date, belief_date_precision, belief_expression_date, belief_expression_date_precision, belief_expression_url, belief_entry_date, works_consumed, entry_method, notes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 if ($stmt = $mysqli->prepare($query)) {
@@ -103,6 +106,7 @@ if ($stmt = $mysqli->prepare($query)) {
         $params_ok = false;
     }
 
+    echo "bdate: $bdate<br />";
     if (is_date($bdate)) {
         echo "date: " . date_precision($bdate) . "<br />";
         $bdate_prec = date_precision($bdate);
@@ -113,6 +117,7 @@ if ($stmt = $mysqli->prepare($query)) {
         $bdate = null;
     }
 
+    echo "edate: $edate<br />";
     $edate = $_POST['belief_expression_date'];
     if ($edate !== '' && !is_date($edate)) {
         echo 'Belief expression date is not a date.<br />';
@@ -168,15 +173,15 @@ if ($stmt = $mysqli->prepare($query)) {
             $notes
         );
         $stmt->execute();
-        print $stmt->error;
+        print "stmt error: " . $stmt->error . "<br />";
     } else {
         print "There are problems with the input parameters so the belief was not added.<br />";
     }
 
-    print $mysqli->error;
-    print $mysqli->affected_rows;
+    print "mysqli error: " . $mysqli->error . "<br />";
+    print "Number of rows affected: " . $mysqli->affected_rows . "<br />";
 } else {
-    echo $mysqli->error;
+    print "mysqli error: " . $mysqli->error . "<br />";
 }
 
 ?>
