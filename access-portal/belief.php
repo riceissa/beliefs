@@ -70,16 +70,16 @@ while ($row = $result->fetch_assoc()) {
 <tr>
     <?= $belief ? '' : '<td>' . $row['belief_text'] . '</td>' ?>
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
-    <td><?= $row['likert_response'] ?></td>
-    <td align="right"><?= $row['confidence'] ?></td>
+    <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
+    <td align="right"><?= $row['confidence'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['probability_point_estimate'] ?></td>
-    <td align="right"><?= $row['probability_lower_bound'] ?></td>
-    <td align="right"><?= $row['probability_upper_bound'] ?></td>
-    <td align="right"><?= $row['belief_date'] ?></td>
-    <td align="right"><?= $row['belief_expression_date'] ?></td>
-    <td align="right"><?= $row['belief_entry_date'] ?></td>
-    <td><?= $row['works_consumed'] ?></td>
-    <td><?= $row['notes'] ?></td>
+    <td align="right"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
+    <td align="right"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
+    <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
+    <td align="right"><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
+    <td align="right"><?= $row['belief_entry_date'] ?? '&ndash;' ?></td>
+    <td><?= $row['works_consumed'] ?? '&ndash;' ?></td>
+    <td><?= $row['notes'] ?? '&ndash;' ?></td>
 </tr>
 
 <?php
