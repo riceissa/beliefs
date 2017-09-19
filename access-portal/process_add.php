@@ -49,7 +49,7 @@ function date_precision($x) {
             return "day";
         }
     }
-    return false;
+    return null;
 }
 
 $query = "insert into beliefs (username, belief_text, likert_response, confidence, probability_point_estimate, probability_lower_bound, probability_upper_bound, belief_date, belief_date_precision, belief_expression_date, belief_expression_date_precision, belief_expression_url, belief_entry_date, works_consumed, entry_method, notes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -57,6 +57,11 @@ $query = "insert into beliefs (username, belief_text, likert_response, confidenc
 if ($stmt = $mysqli->prepare($query)) {
 
     $params_ok = true;
+
+    if ($_POST['belief_text'] == '') {
+        print 'Belief text must not be empty.<br />';
+        $params_ok = false;
+    }
 
     if (!isset($_SESSION['user'])) {
         print 'User not signed in.';
@@ -82,19 +87,30 @@ if ($stmt = $mysqli->prepare($query)) {
     }
 
     $bdate = $_POST['belief_date'];
-    if (!is_date($bdate)) {
+    if ($bdate !== '' && !is_date($bdate)) {
         echo 'Belief date is not a date.<br />';
         $params_ok = false;
     }
 
     if (is_date($bdate)) {
         echo "date: " . date_precision($bdate) . "<br />";
-        $params_ok = false;
+    }
+    if ($bdate == '') {
+        $bdate = null;
     }
 
     $edate = $_POST['belief_expression_date'];
-    if (!is_date($edate)) {
+    if ($edate !== '' && !is_date($edate)) {
         echo 'Belief expression date is not a date.<br />';
+        $params_ok = false;
+    }
+    if ($edate == '') {
+        $edate = null;
+    }
+
+    $conf = $_POST['confidence'];
+    if ($conf !== '' && !(intval($conf) <= 10 && intval($conf) >= 1)) {
+        echo 'Confidence must be an integer between 1 and 10.';
         $params_ok = false;
     }
 
