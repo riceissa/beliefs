@@ -137,6 +137,16 @@ if ($stmt = $mysqli->prepare($query)) {
     $entry_method = 'add.php';
     $current_date = date('Y-m-d');
 
+    $works_consumed = trim($_POST['works_consumed']);
+    if ($works_consumed === '') {
+        $works_consumed = null;
+    }
+
+    $notes = trim($_POST['notes']);
+    if ($notes === '') {
+        $notes = null;
+    }
+
     if ($params_ok) {
         $stmt->bind_param(
             "sssidddsssssssss",
@@ -153,9 +163,9 @@ if ($stmt = $mysqli->prepare($query)) {
             $edate_prec,
             $_POST['belief_expression_url'],
             $current_date,
-            $_POST['works_consumed'],
+            $works_consumed,
             $entry_method,
-            $_POST['notes']
+            $notes
         );
         $stmt->execute();
         print $stmt->error;
