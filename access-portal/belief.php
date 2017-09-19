@@ -19,12 +19,17 @@ $belief = $_REQUEST['text'];
     <a href="/user.php">Users</a>
 </nav>
 
+<?php if ($belief) { ?>
+    <h1>Belief:
+        <?= htmlspecialchars($belief) ?>
+    </h1>
 
-<p>Belief:
-<?= htmlspecialchars($_REQUEST['text']) ?>
-</p>
+    <p>Here are the users who have expressed their opinion on this belief:</p>
+<?php } else { ?>
+    <h1>Beliefs</h1>
 
-<p>Here are the users who have expressed their opinion on this belief:</p>
+    <p>Here are some beliefs on this site:</p>
+<?php } ?>
 
 <table>
     <thead>
