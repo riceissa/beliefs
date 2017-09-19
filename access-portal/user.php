@@ -17,6 +17,12 @@ include_once("backend/globalVariables/passwordFile.inc");
 
 <h1>Beliefs repo for <?= $_REQUEST['username'] ?></h1>
 
+<?php if ($_REQUEST['username'] === $_SESSION['user']) { ?>
+<p>Welcome back, <?= $_SESSION['user'] ?>. You can
+    <a href="/add.php">add a belief</a>.
+</p>
+<?php } ?>
+
 <p><a href="//<?= urlencode($_REQUEST['username']) ?>">Visit this user’s web page</a>.
 </p>
 
