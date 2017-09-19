@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+include_once("backend/globalVariables/passwordFile.inc");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,8 @@
 
 <body>
 <?php include('navbar.inc') ?>
+
+<?php if ($_REQUEST['username']) { ?>
 
 <h1>Beliefs repo for <?= $_REQUEST['username'] ?></h1>
 
@@ -33,7 +37,6 @@
 
 <?php
 
-include_once("backend/globalVariables/passwordFile.inc");
 
 $query = 'select * from beliefs where username = ?';
 if ($stmt = $mysqli->prepare($query)) {
@@ -65,6 +68,38 @@ if ($stmt = $mysqli->prepare($query)) {
 ?>
   </tbody>
 </table>
+
+<?php } else { ?>
+
+<h1>Users on this site</h1>
+
+<table>
+<thead>
+    <tr>
+        <th>Username</th>
+        <th>Total beliefs</th>
+        <th>Total distinct beliefs</th>
+    </tr>
+</thead>
+
+<?php
+$query = 'select distinct(username) as username, count(*) numBeliefs, count(distinct belief_text) as numDistinctBeliefs from beliefs group by username';
+if ($stmt = $mysqli->prepare($query)) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    print $mysqli->affected_rows;
+    while ($row = $result->fetch_assoc()) {
+?>
+        <tr>
+        <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
+        <td><?= $row['numBeliefs'] ?></td>
+        <td><?= $row['numDistinctBeliefs'] ?></td>
+        </tr>
+<?php
+    }
+}
+?>
+<?php } ?>
 
 </body>
 </html>
