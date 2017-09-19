@@ -36,6 +36,15 @@
 </p>
 
 <p><strong>Question:</strong>
+    Do the forms on this site enforce any sort of consistency?
+</p>
+<p><strong>Answer:</strong>
+    Yes. Each form enforces <em>local</em> consistency, so e.g. you cannot
+    enter a probability point estimate that is lower than the probability
+    lower bound. However, there is no enforcement of intertemporal
+    consistency so e.g. you can enter a probability point estimate that is
+    lower than the probability lower bound as long as you enter the two on
+    separate occasions.
 </p>
 
 <p><strong>Question:</strong>
