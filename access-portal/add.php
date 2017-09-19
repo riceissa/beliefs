@@ -40,6 +40,7 @@ session_start();
     <br />
 
     <label>Confidence</label>
+    <input type="radio" name="confidence" value="" checked="checked"> None
     <input type="radio" name="confidence" value="1"> 1
     <input type="radio" name="confidence" value="2"> 2
     <input type="radio" name="confidence" value="3"> 3
