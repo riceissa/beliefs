@@ -8,8 +8,7 @@
 </head>
 
 <body>
-
-<p><a href="/logout.php">Log out</a></p>
+<?php include('navbar.inc') ?>
 
 <h1>Add a belief</h1>
 
