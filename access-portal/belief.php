@@ -10,6 +10,7 @@ $belief = $_REQUEST['text'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Beliefs repo</title>
+    <?php include("table_styling.inc") ?>
 </head>
 
 <body>
@@ -34,6 +35,7 @@ $belief = $_REQUEST['text'];
             <th>Username</th>
             <th>Likert response</th>
             <th>Confidence</th>
+            <th>Probability</th>
         </tr>
     </thead>
     <tbody>
@@ -63,6 +65,7 @@ while ($row = $result->fetch_assoc()) {
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?></td>
     <td><?= $row['confidence'] ?></td>
+    <td><?= $row['probability_point_estimate'] ?> [<?= $row['probability_lower_bound'] ?>, <?= $row['probability_upper_bound'] ?>]</td>
 </tr>
 
 <?php
