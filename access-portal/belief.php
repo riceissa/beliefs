@@ -38,7 +38,7 @@ if ($stmt = $mysqli->prepare($query)) {
     while ($row = $result->fetch_assoc()) {
 ?>
 
-    <td><?= $row['username'] ?? 'N/A' ?></td>
+    <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?></td>
     <td><?= $row['confidence'] ?></td>
 
