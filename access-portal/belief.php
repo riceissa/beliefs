@@ -68,7 +68,7 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <tr>
-    <?= $belief ? '' : '<td>' . $row['belief_text'] . '</td>' ?>
+    <?= $belief ? '' : '<td><a href="/belief.php?text=' . urlencode($row['belief_text']) . '">' . $row['belief_text'] . '</a></td>' ?>
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['confidence'] ?? '&ndash;' ?></td>
