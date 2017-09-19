@@ -16,6 +16,8 @@ session_start();
 
 <h1>Add a belief</h1>
 
+<?php if (isset($_SESSION['user'])) { ?>
+
 <p>Welcome <?= $_SESSION['user'] ?>
 <?= date('Y-m-d') ?>
 </p>
@@ -85,6 +87,12 @@ session_start();
     <input type="hidden" name="username" value="<?= $_SESSION['user'] ?>">
     <input type="submit" value="Submit" />
 </form>
+
+<?php } else { ?>
+
+<p>Please <a href="/login.php">sign in</a> before adding a belief.</p>
+
+<?php } ?>
 
 </body>
 </html>
