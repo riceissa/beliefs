@@ -10,42 +10,42 @@
 
 <h1>Beliefs repo for <?= $_REQUEST['username'] ?></h1>
 
-<p>
+<table>
+  <thead>
+    <tr>
+      <th>Belief</th>
+      <th>Likert response</th>
+      <th>Confidence</th>
+    </tr>
+  </thead>
+  <tbody>
+
 <?php
 
 include_once("backend/globalVariables/passwordFile.inc");
-        print '<table>';
-        print '  <thead>';
-        print '    <tr>';
-        print '      <th>Belief</th>';
-        print '      <th>Likert response</th>';
-        print '      <th>Confidence</th>';
-        print '    </tr>';
-        print '  </thead>';
-        print '  <tbody>';
 
-$query = 'select * from beliefs';
+$query = 'select * from beliefs where username = ?';
 if ($stmt = $mysqli->prepare($query)) {
-    # $stmt->bind_param("s", $donor);
+    $stmt->bind_param("s", $_REQUEST['username']);
     $stmt->execute();
     $result = $stmt->get_result();
+    print $mysqli->affected_rows;
     while ($row = $result->fetch_assoc()) {
-        print '    <tr>';
-        print "<td>" . $row['belief_text'] . "</td>";
-        print "<td>" . $row['likert_response'] . "</td>";
-        print "<td>" . $row['confidence'] . "</td>";
-        print '    </tr>';
+?>
+
+<tr>
+    <td><?= $row['belief_text'] ?? 'N/A' ?></td>
+    <td><?= $row['likert_response'] ?></td>
+    <td><?= $row['confidence'] ?></td>
+</tr>
+
+<?php
     }
-        print '  </tbody>';
-        print '</table>';
 }
 
-$username = $_REQUEST['username'];
-
-echo 'Beliefs for ' . $username;
-
 ?>
-</p>
+  </tbody>
+</table>
 
 </body>
 </html>
