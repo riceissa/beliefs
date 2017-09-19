@@ -129,7 +129,7 @@ if ($stmt = $mysqli->prepare($query)) {
     if ($params_ok) {
         $stmt->bind_param(
             "sssidddsssssssss",
-            $_POST['user'],
+            $_SESSION['user'],
             $_POST['belief_text'],
             $_POST['likert_response'],
             $_POST['confidence'],
