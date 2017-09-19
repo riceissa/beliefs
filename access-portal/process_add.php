@@ -56,56 +56,69 @@ $query = "insert into beliefs (username, belief_text, likert_response, confidenc
 
 if ($stmt = $mysqli->prepare($query)) {
 
+    $params_ok = true;
+
     $ppe = $_POST['probability_point_estimate'];
     if (!is_probability($ppe)) {
         echo 'Probability point estimate must be between 0 and 1.<br />';
+        $params_ok = false;
     }
 
     $plb = $_POST['probability_lower_bound'];
     if (!is_probability($plb)) {
         echo 'Probability lower bound must be between 0 and 1.<br />';
+        $params_ok = false;
     }
 
     $pub = $_POST['probability_upper_bound'];
     if (!is_probability($pub)) {
         echo 'Probability upper bound must be between 0 and 1.<br />';
+        $params_ok = false;
     }
 
     $bdate = $_POST['belief_date'];
     if (!is_date($bdate)) {
         echo 'Belief date is not a date.<br />';
+        $params_ok = false;
     }
 
     if (is_date($bdate)) {
         echo "date: " . date_precision($bdate) . "<br />";
+        $params_ok = false;
     }
 
     $edate = $_POST['belief_expression_date'];
     if (!is_date($edate)) {
         echo 'Belief expression date is not a date.<br />';
+        $params_ok = false;
     }
 
-    $stmt->bind_param(
-        "sssidddsssssssss",
-        $_POST['username'],
-        $_POST['belief_text'],
-        $_POST['likert_response'],
-        $_POST['confidence'],
-        $ppe,
-        $plb,
-        $pub,
-        $bdate,
-        date_precision($bdate),
-        $edate,
-        date_precision($edate),
-        $_POST['belief_expression_url'],
-        date('Y-m-d'),
-        $_POST['works_consumed'],
-        $entry_method = 'add.php',
-        $_POST['notes']
-    );
-    $stmt->execute();
-    print $stmt->error;
+    if ($params_ok) {
+        $stmt->bind_param(
+            "sssidddsssssssss",
+            $_POST['username'],
+            $_POST['belief_text'],
+            $_POST['likert_response'],
+            $_POST['confidence'],
+            $ppe,
+            $plb,
+            $pub,
+            $bdate,
+            date_precision($bdate),
+            $edate,
+            date_precision($edate),
+            $_POST['belief_expression_url'],
+            date('Y-m-d'),
+            $_POST['works_consumed'],
+            $entry_method = 'add.php',
+            $_POST['notes']
+        );
+        $stmt->execute();
+        print $stmt->error;
+    } else {
+        print "There are problems with the input parameters so the belief was not added.<br />";
+    }
+
     print $mysqli->error;
     print $mysqli->affected_rows;
 } else {
