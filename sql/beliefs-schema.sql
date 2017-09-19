@@ -14,5 +14,6 @@ create table beliefs (
     belief_expression_url varchar(200),
     belief_entry_date date,
     works_consumed varchar(2000),
+    entry_method enum('add.php','manual SQL entry','probability method','likert method'),
     notes varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
