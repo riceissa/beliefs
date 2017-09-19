@@ -24,6 +24,10 @@
     <a href="/add.php">add some beliefs</a>.
 </p>
 
+<p>Source code for this site is <a href="https://github.com/riceissa/beliefs">available
+    on GitHub</a>.
+</p>
+
 <p>Some related reading:</p>
 <ul>
     <li><a href="http://lesswrong.com/lw/klg/knightian_uncertainty_in_a_bayesian_framework/">“Knightian uncertainty in a Bayesian framework”</a></li>
