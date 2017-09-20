@@ -56,8 +56,8 @@
 </p>
 <p><strong>Answer:</strong>
     Everybody! We make the <a href="https://github.com/riceissa/beliefs">full
-    source code</a> for the site
-    as well as a <a href="">serialized form of all the data</a> available,
+    source code</a> for the site as well as a
+    <a href="/beliefs_data.sql">serialized form of all the data</a> available,
     so anyone can host their own version of the site or analyze the data.
     We ask that users release the information they submit on the site under
     the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0
