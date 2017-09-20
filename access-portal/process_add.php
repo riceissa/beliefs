@@ -13,7 +13,7 @@ include_once("backend/globalVariables/passwordFile.inc");
 <body>
 <?php include('navbar.inc') ?>
 
-<h1>hello</h1>
+<h1>Form processed</h1>
 
 <pre>
 
@@ -236,7 +236,9 @@ if ($stmt = $mysqli->prepare($query)) {
     }
 
     print "mysqli error: " . $mysqli->error . "<br />";
-    print "Number of rows affected: " . $mysqli->affected_rows . "<br />";
+    print "Number of rows affected: " . $mysqli->affected_rows . "<br /><br />";
+
+    print $mysqli->affected_rows === 1 ? "Success!" : "Failed!";
 } else {
     print "mysqli error: " . $mysqli->error . "<br />";
 }
