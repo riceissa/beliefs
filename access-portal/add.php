@@ -20,7 +20,7 @@
 
 <form action="process_add.php" method="post">
     <label>Belief text</label>
-    <input type="text" style="width:300px;" name="belief_text"/>
+    <input type="text" style="width:300px;" name="belief_text" <?= $_REQUEST['text'] ? 'value="' . htmlspecialchars($_REQUEST['text']) . '"' : '' ?> />
     <br />
 
     <label>Agreement</label>
