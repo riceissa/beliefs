@@ -200,7 +200,10 @@ if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
         print "stmt error: " . $stmt->error . "<br />";
 
+        $first_line = false;
+
         if (filesize("beliefs_data.sql") == 0) {
+            $first_line = true;
             $data_file = fopen("beliefs_data.sql", "w");
             $line = "insert into beliefs (username, belief_text, likert_response, confidence, probability_point_estimate, probability_lower_bound, probability_upper_bound, belief_date, belief_date_precision, belief_expression_date, belief_expression_date_precision, belief_expression_url, belief_entry_date, works_consumed, entry_method, notes) values\n";
             fwrite($data_file, $line);
@@ -208,7 +211,7 @@ if ($stmt = $mysqli->prepare($query)) {
         }
 
         $data_file = fopen("beliefs_data.sql", "a") or die("Could not open data file.");
-        $line = ",(" .
+        $line = "    " . ($first_line ? '' : ",") . "(" .
             mysql_quote($_SESSION['user']) . "," .
             mysql_quote($_POST['belief_text']) . "," .
             mysql_quote($_POST['likert_response']) . "," .
