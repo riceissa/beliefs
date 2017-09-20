@@ -25,6 +25,24 @@
 </p>
 
 <p><strong>Question:</strong>
+    Is this site for opinions on “big questions”, or can more mundane things
+    also go here?
+</p>
+
+<p><strong>Question:</strong>
+    What is the status of development?
+</p>
+<p><strong>Answer:</strong>
+    The core site features currently work. This was implemented as a
+    proof-of-concept/prototype to see if having a service like this would
+    be useful.
+</p>
+
+<p><strong>Question:</strong>
+    What are the future plans for development?
+</p>
+
+<p><strong>Question:</strong>
     Who runs the site?
 </p>
 <p><strong>Answer:</strong>
