@@ -62,5 +62,6 @@ if(!array_key_exists('user', $_SESSION)) {
 <h1>Welcome, <?= $_SESSION['user'] ?></h1>
 
 <p>You are logged in as <?= $_SESSION['user'] ?>.
+    Go ahead and <a href="/add.php">add some beliefs</a>.
     <a href="/logout.php">Log out</a>.
 </p>
