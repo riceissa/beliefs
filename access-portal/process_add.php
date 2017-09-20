@@ -68,6 +68,17 @@ function date_normalized($x) {
     }
 }
 
+function mysql_quote($x) {
+    if ($x === '' || $x === null) {
+        return "NULL";
+    }
+    $x = str_replace("\\", "\\\\", $x);
+    $x = str_replace("'", "''", $x);
+    $x = str_replace("\n", "\\n", $x);
+    $x = str_replace("\r", "", $x);
+    return "'" . $x . "'";
+}
+
 $query = "insert into beliefs (username, belief_text, likert_response, confidence, probability_point_estimate, probability_lower_bound, probability_upper_bound, belief_date, belief_date_precision, belief_expression_date, belief_expression_date_precision, belief_expression_url, belief_entry_date, works_consumed, entry_method, notes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 if ($stmt = $mysqli->prepare($query)) {
@@ -181,6 +192,28 @@ if ($stmt = $mysqli->prepare($query)) {
         );
         $stmt->execute();
         print "stmt error: " . $stmt->error . "<br />";
+
+        $data_file = fopen("beliefs_data.sql", "a") or die("Could not open data file.");
+        $line = ",(" .
+            mysql_quote($_SESSION['user']) . "," .
+            mysql_quote($_POST['belief_text']) . "," .
+            mysql_quote($_POST['likert_response']) . "," .
+            mysql_quote($_POST['confidence']) . "," .
+            mysql_quote($ppe) . "," .
+            mysql_quote($plb) . "," .
+            mysql_quote($pub) . "," .
+            mysql_quote($bdate) . "," .
+            mysql_quote($bdate_prec) . "," .
+            mysql_quote($edate) . "," .
+            mysql_quote($edate_prec) . "," .
+            mysql_quote($_POST['belief_expression_url']) . "," .
+            mysql_quote($current_date) . "," .
+            mysql_quote($works_consumed) . "," .
+            mysql_quote($entry_method) . "," .
+            mysql_quote($notes) . ")\n";
+        fwrite($data_file, $line);
+        fclose($data_file);
+
     } else {
         print "There are problems with the input parameters so the belief was not added.<br />";
     }
