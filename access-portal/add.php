@@ -18,7 +18,7 @@
 <?= date('Y-m-d') ?>
 </p>
 
-<form action="process_add.php" method="post" autocomplete="on">
+<form action="process_add.php" method="post">
     <label>Belief text</label>
     <input type="text" style="width:300px;" name="belief_text"/>
     <br />
@@ -36,7 +36,7 @@
     <br />
 
     <label>Confidence</label>
-    <!-- <input type="radio" name="confidence" value="" checked="checked"> None -->
+    <input type="radio" name="confidence" value="" checked="checked"> None
     <input type="radio" name="confidence" value="1"> 1
     <input type="radio" name="confidence" value="2"> 2
     <input type="radio" name="confidence" value="3"> 3
