@@ -144,12 +144,12 @@ if ($stmt = $mysqli->prepare($query)) {
     }
     $bdate = date_normalized($bdate);
 
-    echo "edate: $edate<br />";
     $edate = $_POST['belief_expression_date'];
     if ($edate !== '' && !is_date($edate)) {
         echo 'Belief expression date is not a date.<br />';
         $params_ok = false;
     }
+    echo "edate: $edate<br />";
     if (is_date($edate)) {
         echo "date: " . date_precision($edate) . "<br />";
         $edate_prec = date_precision($edate);
