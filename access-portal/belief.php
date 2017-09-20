@@ -21,6 +21,8 @@ $belief = $_REQUEST['text'];
         <?= htmlspecialchars($belief) ?>
     </h1>
 
+    <p><a href="/add.php?text=<?= urlencode($belief) ?>">Add an opinion on this belief</a>.</p>
+
     <p>Here are the users who have expressed their opinion on this belief:</p>
 <?php } else { ?>
     <h1>Beliefs</h1>
