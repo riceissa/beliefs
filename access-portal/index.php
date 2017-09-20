@@ -40,15 +40,16 @@
 </p>
 
 <ul>
-    <li>The <a href="https://en.wikipedia.org/wiki/Initiative_on_Global_Markets#IGM_polls_and_the_Economics_Experts_Panel">IGM Panel</a></li>
-    <li>Propositions on Arbital</li>
-    <li>PhilPapers Surveys and other professional surveys (AI Impacts survey,
-        various surveys of economists)</li>
-    <li>YourMorals.Org</li>
+    <li>Professional surveys
+        (<a href="https://en.wikipedia.org/wiki/Initiative_on_Global_Markets#IGM_polls_and_the_Economics_Experts_Panel">economics</a>,
+        <a href="https://philpapers.org/surveys/">philosophy</a>,
+        <a href="https://aiimpacts.org/2016-expert-survey-on-progress-in-ai/">machine learning</a>)</li>
+    <li><a href="http://www.yourmorals.org/">YourMorals.Org</a></li>
     <li>OkCupid profile questions</li>
-    <li>Prediction sites like PredictionBook</li>
-    <li>Cost-effectiveness spreadsheets like those by GiveWell</li>
-    <li>Julia Galef’s Update Project</li>
+    <li>Prediction sites like <a href="https://predictionbook.com/">PredictionBook</a></li>
+    <li>Cost-effectiveness spreadsheets like <a href="http://www.givewell.org/how-we-work/our-criteria/cost-effectiveness/cost-effectiveness-models">those by GiveWell</a></li>
+    <li>Julia Galef’s <a href="https://juliagalef.com/update-project/">Update Project</a></li>
+    <li>Propositions on <a href="https://arbital.com/">Arbital</a></li>
     <li>Some individuals who have published belief summaries, e.g.
         <a href="http://reducing-suffering.org/summary-beliefs-values-big-questions/">Brian Tomasik</a></li>
 </ul>
