@@ -80,11 +80,12 @@
     <label>Notes</label><br />
     <textarea rows="5" cols="80" name="notes"></textarea>
     <br />
+    <br />
 
-    <label>By clicking “Submit”, you irrevocably agree to release your
+    <label><strong>By clicking “Submit”, you irrevocably agree to release your
         contribution under the
         <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-        Commons CC0 License</a>.</label><br />
+        Commons CC0 License</a>.</strong></label><br />
     <input type="submit" value="Submit" />
 </form>
 
