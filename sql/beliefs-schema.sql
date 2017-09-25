@@ -12,7 +12,7 @@ create table beliefs (
     belief_expression_date date,
     belief_expression_date_precision enum('day','month','year','multi-year'),
     belief_expression_url varchar(200),
-    belief_entry_date date,
+    belief_entry_date datetime,
     works_consumed varchar(2000),
     entry_method enum('add.php','manual SQL entry','probability method','likert method'),
     notes varchar(2000) DEFAULT NULL

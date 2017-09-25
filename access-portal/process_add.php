@@ -165,7 +165,7 @@ if ($stmt = $mysqli->prepare($query)) {
     }
 
     $entry_method = 'add.php';
-    $current_date = date('Y-m-d');
+    $current_date = gmdate('Y-m-d H:i:s');
 
     $works_consumed = trim($_POST['works_consumed']);
     if ($works_consumed === '') {
