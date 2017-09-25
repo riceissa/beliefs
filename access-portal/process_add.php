@@ -97,6 +97,19 @@ if ($stmt = $mysqli->prepare($query)) {
         $params_ok = false;
     }
 
+    if ($_POST['likert_response'] == '') {
+        $likert_response = null;
+    }
+
+    $conf = $_POST['confidence'];
+    if ($conf !== '' && !(intval($conf) <= 10 && intval($conf) >= 1)) {
+        echo 'Confidence must be an integer between 1 and 10.';
+        $params_ok = false;
+    }
+    if ($conf === '') {
+        $conf = null;
+    }
+
     if (!isset($_SESSION['user'])) {
         print 'User not signed in.';
         $params_ok = false;
@@ -158,12 +171,6 @@ if ($stmt = $mysqli->prepare($query)) {
     }
     $edate = date_normalized($edate);
 
-    $conf = $_POST['confidence'];
-    if ($conf !== '' && !(intval($conf) <= 10 && intval($conf) >= 1)) {
-        echo 'Confidence must be an integer between 1 and 10.';
-        $params_ok = false;
-    }
-
     $entry_method = 'add.php';
     $current_date = gmdate('Y-m-d H:i:s');
 
@@ -182,8 +189,8 @@ if ($stmt = $mysqli->prepare($query)) {
             "sssidddsssssssss",
             $_SESSION['user'],
             $_POST['belief_text'],
-            $_POST['likert_response'],
-            $_POST['confidence'],
+            $likert_response,
+            $conf,
             $ppe,
             $plb,
             $pub,
