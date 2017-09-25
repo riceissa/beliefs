@@ -56,14 +56,14 @@ $belief = $_REQUEST['text'];
 <?php
 
 if ($belief) {
-    $query = "select * from beliefs where belief_text = ?";
+    $query = "select * from beliefs where belief_text = ? order by belief_entry_date desc";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param("s", $belief);
         $stmt->execute();
         $result = $stmt->get_result();
     }
 } else {
-    $query = "select * from beliefs";
+    $query = "select * from beliefs order by belief_entry_date desc";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
         $result = $stmt->get_result();

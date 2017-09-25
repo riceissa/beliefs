@@ -29,7 +29,7 @@ include_once("backend/globalVariables/passwordFile.inc");
 <?php
 
 
-$query = 'select * from beliefs where username = ?';
+$query = 'select * from beliefs where username = ? order by belief_entry_date desc';
 if ($stmt = $mysqli->prepare($query)) {
     $stmt->bind_param("s", $_REQUEST['username']);
     $stmt->execute();
