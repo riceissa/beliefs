@@ -87,5 +87,15 @@
     people consider ‘subjective’ rather than ‘objective’) on this site?
 </p>
 
+<p><strong>Question:</strong>
+    My question isn’t answered on this page; where can I ask a question?
+</p>
+<p><strong>Answer:</strong>
+    Email riceissa@gmail.com. Be sure to make it clear in the email that you
+    are asking about this site. If you want to report a problem on the site,
+    you can <a href="https://github.com/riceissa/beliefs/issues">file an issue</a>
+    on GitHub.
+</p>
+
 </body>
 </html>
