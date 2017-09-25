@@ -27,6 +27,10 @@ $belief = $_REQUEST['text'];
 <?php } else { ?>
     <h1>Beliefs</h1>
 
+    <?php if ($_SESSION['user']) { ?>
+    <p>You can <a href="/add.php">add a belief</a>.</p>
+    <?php } ?>
+
     <p>Here are some beliefs on this site:</p>
 <?php } ?>
 
