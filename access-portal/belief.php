@@ -84,8 +84,8 @@ while ($row = $result->fetch_assoc()) {
     <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['belief_entry_date'] ?? '&ndash;' ?></td>
-    <td><?= $row['works_consumed'] ?? '&ndash;' ?></td>
-    <td><?= $row['notes'] ?? '&ndash;' ?></td>
+    <td><?= preg_replace('|\n|', '<br />', $row['works_consumed']) ?? '&ndash;' ?></td>
+    <td><?= preg_replace('|\n|', '<br />', $row['notes']) ?? '&ndash;' ?></td>
 </tr>
 
 <?php
