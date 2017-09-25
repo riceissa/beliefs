@@ -46,7 +46,7 @@ $belief = $_REQUEST['text'];
             <th>Probability upper bound</th>
             <th>Belief held on</th>
             <th>Belief expressed on</th>
-            <th>Belief entered on</th>
+            <th>Belief entered at (UTC)</th>
             <th>Works consumed</th>
             <th>Notes</th>
         </tr>
