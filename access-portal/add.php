@@ -25,7 +25,7 @@
 
     <label>Agreement</label>
     <select name="likert_response">
-        <option value="">NULL</option>
+        <option value="">None</option>
         <option>Strongly agree</option>
         <option>Agree</option>
         <option>Uncertain</option>
