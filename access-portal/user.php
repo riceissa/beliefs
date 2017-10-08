@@ -75,7 +75,7 @@ if ($stmt = $mysqli->prepare($query)) {
     <td align="right"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
     <td align="right"><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_entry_date'] ?? '&ndash;' ?></td>
+    <td align="right"<?= 'title="' . $row['belief_entry_date'] . '"' ?>><?= $row['belief_entry_date'] ? substr($row['belief_entry_date'], 0, 10) : '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['works_consumed'])) ?? '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['notes'])) ?? '&ndash;' ?></td>
 </tr>
