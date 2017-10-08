@@ -9,6 +9,9 @@ $belief = $_REQUEST['text'];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="/tablesorter.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.tablesorter.js"></script>
     <title>Beliefs repo</title>
     <?php include("table_styling.inc") ?>
 </head>
@@ -95,6 +98,10 @@ while ($row = $result->fetch_assoc()) {
 <?php
 }
 ?>
+
+<script>
+    $(function(){$("table").tablesorter();});
+</script>
 
 </body>
 </html>
