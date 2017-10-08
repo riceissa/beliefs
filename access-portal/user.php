@@ -109,6 +109,7 @@ if ($stmt = $mysqli->prepare($query)) {
         <th>Total distinct beliefs</th>
     </tr>
 </thead>
+<tbody>
 
 <?php
     while ($row = $result->fetch_assoc()) {
@@ -118,10 +119,10 @@ if ($stmt = $mysqli->prepare($query)) {
         <td align="right"><?= $row['numBeliefs'] ?></td>
         <td align="right"><?= $row['numDistinctBeliefs'] ?></td>
         </tr>
-<?php
-    }
-}
-?>
+    <?php } ?>
+</tbody>
+</table>
+  <?php } ?>
 <?php } ?>
 
 <script>
