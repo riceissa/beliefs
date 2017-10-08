@@ -34,21 +34,25 @@ $belief = $_REQUEST['text'];
     <p>Here are some beliefs on this site:</p>
 <?php } ?>
 
-<table>
+<table class="<?= $_REQUEST['wikitable'] ? 'wikitable' : 'booktabs' ?>">
     <thead>
         <tr>
-            <?= $belief ? '' : '<th>Belief</th>' ?>
-            <th>Username</th>
-            <th>Likert response</th>
-            <th>Confidence</th>
-            <th>Probability</th>
-            <th>Probability lower bound</th>
-            <th>Probability upper bound</th>
-            <th>Belief held on</th>
-            <th>Belief expressed on</th>
-            <th>Belief entered at (UTC)</th>
-            <th>Works consumed</th>
-            <th>Notes</th>
+            <?= $belief ? '' : '<th rowspan="2">Belief</th>' ?>
+            <th rowspan="2">Username</th>
+            <th rowspan="2">Likert response</th>
+            <th rowspan="2">Confidence</th>
+            <th colspan="3">Probability</th>
+            <th colspan="3">Date of belief</th>
+            <th rowspan="2">Works consumed</th>
+            <th rowspan="2">Notes</th>
+        </tr>
+        <tr>
+            <th>Point estimate</th>
+            <th>Lower bound</th>
+            <th>Upper bound</th>
+            <th>Held</th>
+            <th>Expressed</th>
+            <th>Entered</th>
         </tr>
     </thead>
     <tbody>
