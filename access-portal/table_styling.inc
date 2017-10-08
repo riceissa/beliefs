@@ -7,21 +7,21 @@ table {
 }
 
 table.booktabs {
-    font-family: Charter, "Bitstream Charter", serif;
-    border-collapse: collapse;
-    border-bottom: 2px solid #333;
-    border-top: 2px solid #333;
+  font-family: Charter, "Bitstream Charter", serif;
+  border-collapse: collapse;
+  border-bottom: 2px solid #333;
+  border-top: 2px solid #333;
 }
 
 table.booktabs th {
-    font-weight: normal;
-    padding: 0px 10px;
-    vertical-align: bottom;
+  font-weight: normal;
+  padding: 0px 10px;
+  vertical-align: bottom;
 }
 
 table.booktabs td {
-    padding: 0px 10px;
-    vertical-align: top;
+  padding: 0px 10px;
+  vertical-align: top;
 }
 
 table.booktabs tbody tr { border-bottom: 1px dotted #ccc; }
