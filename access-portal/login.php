@@ -13,7 +13,12 @@ if(array_key_exists('token', $_GET)) {
   if($auth && $auth->me) {
     $user = preg_replace('|https?://|', '', $auth->me);
     $user = preg_replace('|/$|', '', $user);
-    $_SESSION['user'] = $user;
+    // For now, restrict users to pages on issarice.com and top level .com or
+    // .org domains
+    if (preg_match('/^[a-z-]+\.(com|org)$/', $user) ||
+        preg_match('/^issarice\.com\//', $user)) {
+      $_SESSION['user'] = $user;
+    }
   }
   // Redirect back to this page
   header('Location: ' . $_SERVER['PHP_SELF']);
