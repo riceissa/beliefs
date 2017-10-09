@@ -5,7 +5,7 @@ fetch_tablesorter:
 	curl -Lo access-portal/jquery.tablesorter.js \
 		'https://raw.githubusercontent.com/Mottie/tablesorter/master/js/jquery.tablesorter.js'
 	curl -Lo access-portal/tablesorter.css \
-		'https://raw.githubusercontent.com/Mottie/tablesorter/master/css/theme.default.css'
+		'https://raw.githubusercontent.com/riceissa/tablesorter-bare-bones-theme/master/theme.css'
 
 .PHONY: clean_tablesorter
 clean_tablesorter:
