@@ -99,6 +99,9 @@ while ($row = $result->fetch_assoc()) {
 }
 ?>
 
+</tbody>
+</table>
+
 <script>
     $(function(){$("table").tablesorter();});
 </script>
