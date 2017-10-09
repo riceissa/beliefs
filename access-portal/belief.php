@@ -84,13 +84,13 @@ while ($row = $result->fetch_assoc()) {
     <?= $belief ? '' : '<td><a href="/belief.php?text=' . urlencode($row['belief_text']) . '">' . htmlspecialchars($row['belief_text']) . '</a></td>' ?>
     <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
     <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['confidence'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_point_estimate'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_entry_date'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['confidence'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_point_estimate'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
+    <td><?= $row['belief_date'] ?? '&ndash;' ?></td>
+    <td><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
+    <td<?= ' title="' . $row['belief_entry_date'] . '"' ?>><?= $row['belief_entry_date'] ? substr($row['belief_entry_date'], 0, 10) : '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['works_consumed'])) ?? '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['notes'])) ?? '&ndash;' ?></td>
 </tr>

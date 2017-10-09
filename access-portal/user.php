@@ -56,9 +56,9 @@ if ($stmt = $mysqli->prepare($query)) {
       <th>Probability</th>
       <th>Probability lower bound</th>
       <th>Probability upper bound</th>
-      <th>Belief held on</th>
-      <th>Belief expressed on</th>
-      <th>Belief entered at (UTC)</th>
+      <th>Held</th>
+      <th>Expressed</th>
+      <th>Entered</th>
     </tr>
   </thead>
   <tbody>
@@ -69,13 +69,13 @@ if ($stmt = $mysqli->prepare($query)) {
 <tr>
     <td><a href="/belief.php?text=<?= urlencode($row['belief_text']) ?>"><?= $row['belief_text'] ?? 'N/A' ?></a></td>
     <td><?= $row['likert_response'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['confidence'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_point_estimate'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_date'] ?? '&ndash;' ?></td>
-    <td align="right"><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
-    <td align="right"<?= ' title="' . $row['belief_entry_date'] . '"' ?>><?= $row['belief_entry_date'] ? substr($row['belief_entry_date'], 0, 10) : '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['confidence'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_point_estimate'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_lower_bound'] ?? '&ndash;' ?></td>
+    <td style="text-align: right;"><?= $row['probability_upper_bound'] ?? '&ndash;' ?></td>
+    <td><?= $row['belief_date'] ?? '&ndash;' ?></td>
+    <td><?= $row['belief_expression_date'] ?? '&ndash;' ?></td>
+    <td<?= ' title="' . $row['belief_entry_date'] . '"' ?>><?= $row['belief_entry_date'] ? substr($row['belief_entry_date'], 0, 10) : '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['works_consumed'])) ?? '&ndash;' ?></td>
     <td><?= preg_replace('|\n|', '<br />', htmlspecialchars($row['notes'])) ?? '&ndash;' ?></td>
 </tr>
@@ -116,8 +116,8 @@ if ($stmt = $mysqli->prepare($query)) {
 ?>
         <tr>
         <td><?= ($row['username'] ?? '') ? '<a href="/user.php?username=' . urlencode($row['username']) . '">' . $row['username'] . '</a>' : 'N/A' ?></td>
-        <td align="right"><?= $row['numBeliefs'] ?></td>
-        <td align="right"><?= $row['numDistinctBeliefs'] ?></td>
+        <td style="text-align: right;"><?= $row['numBeliefs'] ?></td>
+        <td style="text-align: right;"><?= $row['numDistinctBeliefs'] ?></td>
         </tr>
     <?php } ?>
 </tbody>
