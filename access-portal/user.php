@@ -41,7 +41,7 @@ if ($stmt = $mysqli->prepare($query)) {
   <p>This user has <?= $mysqli->affected_rows ?> beliefs.
   </p>
 
-<table class="<?= $_REQUEST['wikitable'] ? 'wikitable' : 'booktabs' ?>">
+<table class="<?= $_REQUEST['useskin'] === 'wikitable' ? 'wikitable' : 'booktabs' ?>">
   <thead>
     <tr>
       <th rowspan="2">Belief</th>
@@ -101,7 +101,7 @@ if ($stmt = $mysqli->prepare($query)) {
 
 <p>There are <?= $mysqli->affected_rows ?> users on this site:</p>
 
-<table class="<?= $_REQUEST['wikitable'] ? 'wikitable' : 'booktabs' ?>">
+<table class="<?= $_REQUEST['useskin'] === 'wikitable' ? 'wikitable' : 'booktabs' ?>">
 <thead>
     <tr>
         <th>Username</th>

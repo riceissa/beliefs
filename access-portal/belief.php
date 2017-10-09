@@ -37,7 +37,7 @@ $belief = $_REQUEST['text'];
     <p>Here are some beliefs on this site:</p>
 <?php } ?>
 
-<table class="<?= $_REQUEST['wikitable'] ? 'wikitable' : 'booktabs' ?>">
+<table class="<?= $_REQUEST['useskin'] === 'wikitable' ? 'wikitable' : 'booktabs' ?>">
     <thead>
         <tr>
             <?= $belief ? '' : '<th rowspan="2">Belief</th>' ?>
