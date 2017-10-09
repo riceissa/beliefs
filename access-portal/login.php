@@ -47,11 +47,11 @@ if(!array_key_exists('user', $_SESSION)) {
 <p>You are not logged in. Log in with your domain name using
     <a href="https://indieauth.com/">IndieAuth</a>.</p>
 
-<form action="http://indieauth.com/auth" method="get">
+<form action="https://indieauth.com/auth" method="get">
   <label>Web Address:</label>
   <input type="text" name="me" placeholder="yourdomain.com" />
   <p><button type="submit">Sign In</button></p>
-  <input type="hidden" name="redirect_uri" value="<?= 'http://' . $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == 80 ? '' : ':' . $_SERVER['SERVER_PORT']) . $_SERVER['PHP_SELF'] ?>" />
+  <input type="hidden" name="redirect_uri" value="<?= 'https://' . $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == 80 ? '' : ':' . $_SERVER['SERVER_PORT']) . $_SERVER['PHP_SELF'] ?>" />
 </form>
 </body>
 </html>
