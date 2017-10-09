@@ -1,10 +1,5 @@
 <style type="text/css">
-/* The "!important" are to override the tablesorter styling */
-
-table {
-  width: auto !important;
-  font-size: 14px !important;
-}
+table { font-size: 14px; }
 
 table.booktabs {
   font-family: Charter, "Bitstream Charter", serif;
@@ -25,7 +20,7 @@ table.booktabs td {
 }
 
 table.booktabs tbody tr { border-bottom: 1px dotted #ccc; }
-table.booktabs thead th { border-bottom: 1px solid #333 !important; }
+table.booktabs thead th { border-bottom: 1px solid #333; }
 table.booktabs tfoot th { border-top: 1px solid #333; }
 
 table.wikitable {
@@ -36,7 +31,7 @@ table.wikitable {
 
 table.wikitable th {
   background-color: #f2f2f2;
-  border: 1px solid #aaaaaa !important;
+  border: 1px solid #aaaaaa;
   padding: 5px 10px;
 }
 
