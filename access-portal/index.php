@@ -34,6 +34,7 @@
 <ul>
     <li><a href="http://lesswrong.com/lw/klg/knightian_uncertainty_in_a_bayesian_framework/">“Knightian uncertainty in a Bayesian framework”</a></li>
     <li><a href="http://lesswrong.com/lw/jlh/knightian_uncertainty_from_a_bayesian_perspective/">“Knightian Uncertainty from a Bayesian perspective”</a></li>
+    <li><a href="http://lesswrong.com/r/discussion/lw/4gj/what_does_your_web_of_beliefs_look_like_as_of/3l2n">This comment</a> by Vladimir_M</li>
 </ul>
 
 <p>Some related things that I know exist:
