@@ -11,13 +11,33 @@
 <?php
 
 $questions = array(
-    "what is x" => array(
-        "blah 1" => 5,
-        "blah 2" => 2,
+    "What is the probability that God exists?" => array(
+        "90-100%" => -20,
+        "2-89%" => -18,
+        "1%" => -15,
+        "0%" => 0,
     ),
-    "what is y" => array(
-        "blah 3" => -2,
-        "blah 4" => 8,
+    "How would you label yourself?" => array(
+        "Religious" => -20,
+        "Agnostic" => -15,
+        "Atheist" => 0,
+    ),
+    "What is the answer to consciousness?" => array(
+        "Illusionism/type-A physicalism" => 10,
+        "Type-B" => -5,
+        "Folk psychology" => -10,
+        "Wei Dai" => 20,
+    ),
+    "Free will" => array(
+        "Compatibilism" => 5,
+        "Libertarianism" => -10,
+        "Determinism" => -5,
+    ),
+    "Is AI safety important?" => array(
+    ),
+    "Wikipedia" => array(
+    ),
+    "Eliezer Yudkowsky" => array(
     ),
 );
 
@@ -40,11 +60,14 @@ foreach ($questions as $question_text => $answer) {
 
 <form id="quiz" method="get" action="worldviews-quiz.php">
 
+    <ol>
+
     <?php
     $question_counter = 0;
     foreach ($questions as $question_text => $answers) {
         $question_counter += 1;
     ?>
+        <li>
         <p><?= $question_text ?></p>
         <?php
         $answer_counter = 0;
@@ -55,7 +78,10 @@ foreach ($questions as $question_text => $answer) {
                 <input type="radio" name="question-<?= $question_counter ?>" value="<?= $answer_counter ?>">
             </label><br />
         <?php } ?>
+        </li>
     <?php } ?>
+
+    </ol>
 
     <input type="submit" name="submit" value="Submit">
 
